@@ -13,10 +13,12 @@ let lazyLoader = null
 
 function loadView (id, isGL) {
   loading.classList.add('active');
-  chartView.src = `https://echarts.apache.org/examples/zh/editor.html?c=${id}${isGL ? '&gl=1' : ''}`
-  const currentActive = document.querySelector('.example-item.active')
-  currentActive && currentActive.classList.remove('active')
-  document.querySelector(`.example-item[data-chart-id="${id}"]`).classList.add('active')
+  setTimeout(function () {
+    chartView.src = `https://echarts.apache.org/examples/zh/editor.html?c=${id}${isGL ? '&gl=1' : ''}`
+    const currentActive = document.querySelector('.example-item.active')
+    currentActive && currentActive.classList.remove('active')
+    document.querySelector(`.example-item[data-chart-id="${id}"]`).classList.add('active')
+  })
 }
 
 window.loadView = loadView
