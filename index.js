@@ -14,10 +14,12 @@ let lazyLoader = null
 function loadView (id, isGL) {
   loading.classList.add('active');
   setTimeout(function () {
-    chartView.src = `https://echarts.apache.org/examples/zh/editor.html?c=${id}${isGL ? '&gl=1' : ''}`
+    const search = `?c=${id}${isGL ? '&gl=1' : ''}`
+    chartView.src = `https://echarts.apache.org/examples/zh/editor.html${search}`
     const currentActive = document.querySelector('.example-item.active')
     currentActive && currentActive.classList.remove('active')
     document.querySelector(`.example-item[data-chart-id="${id}"]`).classList.add('active')
+    location.hash = search
   })
 }
 
@@ -67,6 +69,7 @@ function filterChart () {
 }
 
 function updateCategoryList (categories = {}) {
+  categoryList.style.display = null
   categoryList.innerHTML = Object.keys(categories).map(key => {
     const value = categories[key]
     return `<div class="category-item" data-value="${key}">${key} (${value})</div>`
@@ -106,7 +109,14 @@ filterInput.addEventListener('keyup', function (e) {
 })
 
 window.onload = function () {
-  renderChartList(EXAMPLES)
+  const hash = location.hash
+  if (hash) {
+    const [id, isGL] = hash.substr(2).split('&').map(part => part.split('=')[1])
+    !isGL ? loadChartButton.click() : loadChartGLButton.click()
+    loadView(id, isGL)
+  } else {
+    loadChartButton.click()
+  }
 }
 
 chartView.onload = function () {
