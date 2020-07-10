@@ -1,0 +1,226 @@
+html{
+  font-size: 10px;
+}
+html,
+body{
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+body * {
+  box-sizing: border-box;
+}
+body{
+  font-size: 1.5rem;
+}
+#container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.left{
+  width: 240px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.filter{
+  position: relative;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.filter-input{
+  height: 50px;
+  border: none;
+  padding: 10px 15px;
+  outline: none;
+}
+
+.category-list{
+  position: absolute;
+  top: 51px;
+  left: 0;
+  width: 480px;
+  height: auto;
+  max-height: 360px;
+  padding: 15px;
+  background: linear-gradient(to bottom, #fafafa, #e6e6e6);
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 1 80px;
+  transform: translateX(calc(-100% - 10px));
+  opacity: 0;
+  transition: 0.4s 0.1s;
+  overflow-x: hidden;
+  z-index: 2;
+  box-shadow: rgba(0,0,0,.2) 0 3px 5px;
+}
+
+.category-item {
+  padding: 12px 15px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.category-item:hover{
+  background-color: #3FA7DC;
+  color: white;
+}
+
+.filter-input:focus ~ .category-list {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  transition: 0.2s;
+}
+
+.filter-clear{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 15px;
+  margin: auto;
+  width: 20px;
+  height: 20px;
+  line-height: 18px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #979797;
+  color: white;
+  opacity: 0;
+  z-index: 2;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.filter-clear:hover{
+  background-color: #3FA7DC;
+}
+
+.filter-input:not(:placeholder-shown) + .filter-clear{
+  opacity: 1;
+}
+
+.example-list-tab{
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #d2d2d2;
+}
+
+.tabs{
+  width: 100%;
+  display: flex;
+}
+
+.tab{
+  width: 50%;
+  text-align: center;
+  line-height: 50px;
+  border: #e2e2e2 1px solid;
+  border-right: none;
+  cursor: pointer;
+}
+
+.tab.active{
+  background: #3FA7DC;
+  color: white;
+}
+
+.example-list{
+  overflow-x: hidden;
+  padding: 10px;
+  flex-grow: 1;
+}
+
+.example-list h4{
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.example-item{
+  width: 100%;
+  height: auto;
+  border: #f2f2f2 1px solid;
+  padding: 10px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.example-item.hide{
+  display: none;
+}
+
+.example-item:hover{
+  background: #f2f2f2;
+  border-color: rgb(189, 212, 255);
+}
+
+.example-item.active{
+  background-color: #3FA7DC;
+  color: white;
+}
+
+.example-thumbnail{
+  width: 100%;
+}
+
+.right {
+  flex-grow: 1;
+  align-self: stretch;
+}
+
+.example-wrapper{
+  position: relative;
+}
+
+.example-wrapper:before{
+  position: absolute;
+  top: 0;
+  bottom: 50%;
+  left: 0;
+  right: 0;
+  content: "请在左侧选择一个图表";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #e2e2e2;
+  z-index: 0;
+}
+
+.example-view{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: none;
+  z-index: 1;
+}
+
+.loading{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+.loading.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.echarts-documentation{
+  line-height: 50px;
+  text-align: center;
+  border-top: 1px solid #e2e2e2;
+}

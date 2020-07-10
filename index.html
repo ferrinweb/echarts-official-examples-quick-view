@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <title>Echarts 官方实例</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="container">
+    <div class="left example-list-tab">
+      <div class="filter">
+        <input id="filter-input" type="text" class="filter-input" placeholder="请输入筛选条件">
+        <span id="filter-clear" class="filter-clear">×</span>
+        <div id="category-list" class="category-list"></div>
+      </div>
+      <div class="tabs">
+        <div id="loadChart" class="tab active">常规图表</div>
+        <div id="loadChartGL" class="tab">GL图表</div>
+      </div>
+      <div id="example-list" class="example-list"></div>
+      <div class="echarts-documentation"><a href="https://echarts.apache.org/zh/option.html" target="_blank">Echarts 官方文档</a></div>
+    </div>
+    <div class="right example-wrapper">
+      <iframe id="example-view" src="" class="example-view"></iframe>
+      <div id="loading" class="loading">图表加载中…</div>
+    </div>
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
+<script src="https://echarts-www.cdn.bcebos.com/examples/javascripts/chart-list-data.js?_v_=1593568979832"></script>
+<script src="https://echarts-www.cdn.bcebos.com/examples/javascripts/chart-list-data-gl.js?_v_=1593568979832"></script>
+<script src="node_modules/axios/dist/axios.min.js"></script>
+<script src="index.js" type="module"></script>
+</html>
