@@ -11,7 +11,7 @@ body * {
   box-sizing: border-box;
 }
 body{
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 a {
@@ -42,7 +42,7 @@ a:hover{
 }
 
 .filter-input{
-  height: 50px;
+  height: 42px;
   border: none;
   padding: 10px 15px;
   outline: none;
@@ -127,7 +127,7 @@ a:hover{
 .tab{
   width: 50%;
   text-align: center;
-  line-height: 50px;
+  line-height: 42px;
   border: #e2e2e2 1px solid;
   border-right: none;
   cursor: pointer;
@@ -230,7 +230,7 @@ a:hover{
 }
 
 .echarts-documentation{
-  line-height: 50px;
+  line-height: 42px;
   text-align: center;
   border-top: 1px solid #e2e2e2;
 }
